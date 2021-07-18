@@ -63,8 +63,8 @@ bvh_include_dirs = torch.utils.cpp_extension.include_paths() + [
 bvh_extra_compile_args = {'nvcc': ['-DPRINT_TIMINGS=0', '-DDEBUG_PRINT=0',
                                    '-DERROR_CHECKING=1',
                                    '-DCOLLISION_ORDERING=1',
-                                   '-std=c++14'],
-                          'cxx': []}
+                                   ],
+                          'cxx': ['-std=c++14']}
 bvh_extension = CUDAExtension('bvh_cuda', bvh_src_files,
                               include_dirs=bvh_include_dirs,
                               extra_compile_args=bvh_extra_compile_args)
